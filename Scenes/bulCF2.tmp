@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkpsefooon0d2"]
+
+[ext_resource type="Texture2D" uid="uid://cx66w4nrovitq" path="res://Art/tennis_ball.png" id="1_2tiss"]
+[ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_sn1bk"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_sn1bk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2tiss")

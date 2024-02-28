@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmebopeglqq28"]
+
+[ext_resource type="Script" path="res://Scenes/mob1.gd" id="1_55los"]
+[ext_resource type="Texture2D" uid="uid://cxqd5i2yn8dsb" path="res://Art/mob1.png" id="1_bycyf"]
+[ext_resource type="Script" path="res://Scenes/Health.gd" id="2_2up2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snq6x"]
+size = Vector2(13, 20)
+
+[node name="Mob1" type="CharacterBody2D"]
+script = ExtResource("1_55los")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_snq6x")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CollisionShape2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bycyf")
+hframes = 2
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_2up2j")
+
+[node name="NavTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="NavTimer" to="." method="_on_nav_timer_timeout"]
